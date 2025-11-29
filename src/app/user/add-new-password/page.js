@@ -6,8 +6,8 @@ import { LoaderCircle, EyeOff, Eye, Key, User, Mail, Tag, ArrowLeft } from 'luci
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
-
-const Page = () => {
+import { Suspense } from 'react'
+const NewPass = () => {
   const [isshow, setIsshow] = useState(false)
   const [loading, setLoading] = useState(false)
   const router = useRouter()
@@ -268,6 +268,17 @@ const Page = () => {
         </div>
       </div>
     </div>
+  )
+}
+
+
+
+const Page = () => {
+  return (
+    <Suspense  fallback={<div>Loading...</div>}>
+      <NewPass />
+      
+    </Suspense>
   )
 }
 
